@@ -6,17 +6,18 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     score += 1
-    music.playMelody("F A C5 - - - - - ", 120)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     mySprite2.destroy()
-    game.over(false)
+    game.splash("Game over")
     game.splash("your score is")
     game.splash(score)
     game.splash("well done")
+    game.over(false)
 })
-let score = 0
 let mySprite2: Sprite = null
+let score = 0
+score = 0
 game.splash("welcome to plane dodger!  Use the 'A' button to go right and 'B' to go left.   The aim of the game is to not be hit by a plane. You also have to touch the apples falling from the sky.")
 scene.setBackgroundColor(9)
 mySprite2 = sprites.create(assets.image`myImage0`, SpriteKind.Player)
@@ -64,6 +65,14 @@ forever(function () {
     mySprite.setPosition(randint(0, 160), 0)
 })
 forever(function () {
+    let mySprite6: Sprite = null
+    for (let index = 0; index < 6; index++) {
+        pause(400)
+        mySprite6.y += 20
+    }
+    mySprite6.setPosition(randint(0, 160), 0)
+})
+forever(function () {
     for (let index = 0; index < 6; index++) {
         pause(400)
         mySprite3.y += 20
@@ -76,4 +85,12 @@ forever(function () {
         mySprite5.y += 20
     }
     mySprite5.setPosition(randint(0, 160), 0)
+})
+forever(function () {
+    let mySprite7: Sprite = null
+    for (let index = 0; index < 6; index++) {
+        pause(400)
+        mySprite7.y += 20
+    }
+    mySprite7.setPosition(randint(0, 160), 0)
 })
